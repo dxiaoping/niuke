@@ -1,0 +1,44 @@
+create database sql_study_data;
+show global variables like '%datadir%';
+use sql_study_data;
+
+create table student (
+  `sno` int not null ,
+  `sname` varchar(20)
+)
+
+create table course(
+  `cno` int not null ,
+  `cname` varchar(20),
+  `cteacher` varchar(20)
+)
+
+create table stu_course(
+  `sno` int not null,
+  `cno` int not null,
+  `scgrade` float
+)
+
+select sname from student
+where sname not in (
+select student.sname from stu_course,course,student
+where student.sno = stu_course.sno and stu_course.cno = course.cno
+and course.cteacher = 'T-张锋');
+
+SELECT sno,sname FROM student
+  WHERE sno NOT IN
+   (
+    SELECT sc.sno FROM stu_course sc
+     INNER JOIN course cu ON sc.cno=cu.cno
+      WHERE cu.cteacher='T-张锋'
+   );
+
+select scgrade from stu_course where scgrande < 60 ;
+
+show variables like '%heap%';
+
+use sql_study_data;
+select count(*) from person_info_memory;
+select count(*) from person_info_large;
+
+select @@tx_isolation;

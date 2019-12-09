@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--对应web.xml 中context-param标签属性-->
+    <!--<beans profile="dev">-->
+        <!--<tx:annotation-driven/>-->
+    <bean id="userService" name="userSvc" class="CodeAnalysis.spring.service.UserService" scope="singleton">
+       <!--<constructor-arg name="user" ref="user"/>-->
+    </bean>
+    <bean id="user" class="CodeAnalysis.mybatis.pojo.User">
+        <!--<constructor-arg name="userService" ref="userService"/>-->
+        <property name="id" value="123"/>
+        <property name="account" value="10010"/>
+        <property name="name" value="长沙学院"/>
+    </bean>
+        <bean id="studentService" name="stu" class="CodeAnalysis.spring.service.StudentService"/>
+    <!--</beans>-->
+
+</beans>
