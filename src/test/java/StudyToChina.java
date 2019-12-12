@@ -3,6 +3,8 @@ import java.util.Map;
 
 import org.jsoup.helper.HttpConnection;
 import org.jsoup.nodes.Document;
+import org.junit.Test;
+
 /**
  * @Description
  * @auther DuanXiaoping
@@ -40,6 +42,11 @@ public class StudyToChina {
         System.out.println(resp);
         System.out.println("页尾==============================");
 //        return this.parseDcumentToList(document);
+    }
+
+    @Test
+    public void test() {
+
     }
 
 }
