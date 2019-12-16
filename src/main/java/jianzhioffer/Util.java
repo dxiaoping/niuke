@@ -14,6 +14,11 @@ import java.util.Random;
 public class Util {
     public static Random random = new Random();
 
+    public static int getRandomInt(int min, int max){
+        int range = max - min+1;
+        return random.nextInt(range) + min;
+    }
+
     public static int[] createArray(int length, int min, int max) {
         int array[] = new int[length];
         int range = max - min+1;
